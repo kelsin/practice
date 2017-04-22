@@ -10,7 +10,8 @@
     "prebuild": "mkdirp build && ncp src/assets build/assets",
     "test": "npm run -s lint && jest --coverage",
     "test:watch": "npm run -s test -- --watch",
-    "lint": "eslint src test"
+    "lint": "eslint src test",
+    "server:build": "babel app.js -d dist"
   },
   "keywords": [
     "preact",
@@ -87,13 +88,19 @@
     "webpack-dev-server": "^1.15.0"
   },
   "dependencies": {
+    "client-sessions": "^0.8.0",
+    "express": "^4.15.2",
+    "passport": "^0.3.2",
+    "passport-spotify": "^0.3.1",
     "preact": "^8.1.0",
     "preact-compat": "^3.13.1",
     "preact-render-to-string": "^3.6.0",
     "preact-router": "^2.4.1",
     "promise-polyfill": "^6.0.2",
     "proptypes": "^0.14.3",
-    "serve": "^5.1.4"
+    "serve": "^5.1.4",
+    "spotify-web-api-js": "^0.21.2",
+    "spotify-web-api-node": "^2.3.6"
   },
   "main": "src/index.js",
   "directories": {
