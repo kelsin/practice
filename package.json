@@ -11,7 +11,9 @@
     "test": "npm run -s lint && jest --coverage",
     "test:watch": "npm run -s test -- --watch",
     "lint": "eslint src test",
-    "server:build": "babel app.js -d dist"
+    "server:build": "babel app.js -d dist",
+    "server:dev": "babel-watch app.js",
+    "server:run": "node dist/app.js"
   },
   "keywords": [
     "preact",
@@ -53,6 +55,7 @@
     "babel-preset-stage-0": "^6.5.0",
     "babel-register": "^6.14.0",
     "babel-runtime": "^6.11.6",
+    "babel-watch": "^2.0.6",
     "chai": "^3.5.0",
     "copy-webpack-plugin": "^4.0.1",
     "core-js": "^2.4.1",
@@ -71,6 +74,7 @@
     "less-loader": "^4.0.3",
     "mkdirp": "^0.5.1",
     "ncp": "^2.0.0",
+    "nodemon": "^1.11.0",
     "offline-plugin": "^4.5.3",
     "postcss-loader": "^1.2.1",
     "preact-jsx-chai": "^2.2.1",
@@ -88,12 +92,14 @@
     "webpack-dev-server": "^1.15.0"
   },
   "dependencies": {
+    "axios": "^0.16.1",
     "client-sessions": "^0.8.0",
     "express": "^4.15.2",
     "passport": "^0.3.2",
     "passport-spotify": "^0.3.1",
     "preact": "^8.1.0",
     "preact-compat": "^3.13.1",
+    "preact-redux": "^2.0.1",
     "preact-render-to-string": "^3.6.0",
     "preact-router": "^2.4.1",
     "promise-polyfill": "^6.0.2",

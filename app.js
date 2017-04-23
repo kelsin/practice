@@ -15,7 +15,7 @@ passport.deserializeUser((obj, done) => {
 passport.use(new Strategy({
 	clientID: process.env.SPOTIFY_CLIENT_ID,
 	clientSecret: process.env.SPOTIFY_CLIENT_SECRET,
-	callbackURL: (process.env.NODE_ENV === 'production' ? 'https://practice.kelsin.net/callback/' : 'http://localhost:3000/callback/')
+	callbackURL: (process.env.NODE_ENV === 'production' ? 'https://practice.kelsin.net/callback/' : 'https://localhost/callback/')
 }, (accessToken, refreshToken, profile, done) => {
 	// asynchronous verification, for effect...
 	process.nextTick(() => {
@@ -74,6 +74,6 @@ app.get('/playlists/:user/:id', (req, res) => {
 		});
 });
 
-app.listen(3000, function() {
-	console.log('Practice server listening on ' + this.address.port);
+app.listen(process.env.PORT || 3000, function() {
+	console.log('Practice server listening on ' + this.address().port);
 });
